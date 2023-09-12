@@ -1,0 +1,6 @@
+pip install streamlit
+pip install diffusers
+pip install streamlit-drawable-canvas
+pip install torch
+pip install --upgrade huggingface_hub
+pip install transformers
