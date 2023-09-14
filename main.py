@@ -27,7 +27,7 @@ def set_image(key: str, img: Image.Image):
 def prompt_and_generate_button(prefix, pipeline_name: PIPELINE_NAMES, **kwargs):
     design1 = st.text_input('what would you like to draw on your shirt?')
     design2 = st.text_input('color')
-    Type1 = f"A detailed illustration {design1},magic, t-shirt design, {design2} color, dark magic splash, dark, ghotic, t-shirt design, in the style of Studio Ghibil, pastel tetradic colors, 30 vector art, cute and quirky, fantasy art, watercolor effect, boken, Adobe lustrator, hand-drawn, digital painting, low-poly, soft lighting, bird's-eye view, isometric style, retro aesthetic, focused on the character, 4K resolution, photorealistic rendering, using Cinema 40"
+    Type1 = f"A detailed illustration {design1},magic, t-shirt design, {design2} color, dark magic splash, dark, ghotic, in the style of Studio Ghibil, pastel tetradic colors, 30 vector art, cute and quirky, fantasy art, watercolor effect, boken, Adobe lustrator, hand-drawn, digital painting, low-poly, soft lighting, bird's-eye view, isometric style, retro aesthetic, focused on the character, 4K resolution, photorealistic rendering, using Cinema 40"
     Type2 = f'A galaxy-themed design featuring a {design1} wearing a space helmet {design2} color'
     Type3 = f"Psychedelic {design1} with {design2} neon colors and a swirling, trippy pattern"
 
