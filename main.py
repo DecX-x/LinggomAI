@@ -12,6 +12,14 @@ DEFAULT_WIDTH, DEFAULT_HEIGHT = 512, 512
 OUTPUT_IMAGE_KEY = "output_img"
 LOADED_IMAGE_KEY = "loaded_image"
 
+# Get the image URL for your logo
+LOGO_URL = "http://linggom.me/Picture1.png"
+
+# Create an HTML tag for your logo
+LOGO_HTML = f'<img src="{LOGO_URL}" alt="My Logo">'
+
+# Display your logo in Streamlit
+st.markdown(LOGO_HTML, unsafe_allow_html=True)
 
 def get_image(key: str) -> Optional[Image.Image]:
     if key in st.session_state:
@@ -22,13 +30,21 @@ def get_image(key: str) -> Optional[Image.Image]:
 def set_image(key: str, img: Image.Image):
     st.session_state[key] = img
 
+def add_logo_to_sidebar(logo_url):
+    """Displays a logo in the sidebar of a Streamlit app."""
 
+    html = f"""
+    <div style="text-align: center;">
+        <img src="http://linggom.me/Picture1.png" alt="Logo" style="width: 20px; height: 20px;">
+    </div>
+    """
+    st.sidebar.markdown(html, unsafe_allow_html=True)
 
 def prompt_and_generate_button(prefix, pipeline_name: PIPELINE_NAMES, **kwargs):
     design1 = st.text_input('what would you like to draw on your shirt?')
     design2 = st.text_input('color')
-    Type1 = f"A detailed illustration {design1},magic, t-shirt design, {design2} color, dark magic splash, dark, ghotic, in the style of Studio Ghibil, pastel tetradic colors, 30 vector art, cute and quirky, fantasy art, watercolor effect, boken, Adobe lustrator, hand-drawn, digital painting, low-poly, soft lighting, bird's-eye view, isometric style, retro aesthetic, focused on the character, 4K resolution, photorealistic rendering, using Cinema 40"
-    Type2 = f'A galaxy-themed design featuring a {design1} wearing a space helmet {design2} color'
+    Type1 = f"A detailed illustration {design1},magic, {design2} color,dark background, black background, black outer, dark magic splash, dark, ghotic, in the style of Studio Ghibil,da pastel tetradic colors, 30 vector art, cute and quirky, fantasy art, watercolor effect, boken, Adobe lustrator, hand-drawn, digital painting, low-poly, soft lighting, bird's-eye view, isometric style, retro aesthetic, focused on the character, 4K resolution, photorealistic rendering, using Cinema 40"
+    Type2 = f'A galaxy-themed design featuring a {design1} wearing a space helmet {design2} color, black background, dark background'
     Type3 = f"Psychedelic {design1} with {design2} neon colors and a swirling, trippy pattern"
 
     option = st.selectbox('What style do you want to use in your design?',
@@ -92,8 +108,6 @@ def txt2img_tab():
 
 
 def main():
-    st.set_page_config(layout="wide")
-    st.title("LinggomAI")
     st.write('T-Shirt Design Generator')
     
 
